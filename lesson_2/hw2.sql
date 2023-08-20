@@ -4,14 +4,10 @@ SELECT 'Это упражнение, практика и решение SQL' AS 
 
 
 
-
-
 ------------- 2 -------------
 
 SELECT name, commission
 FROM salesman;
-
-
 
 
 
@@ -22,15 +18,11 @@ FROM orders;
 
 
 
-
-
 ------------- 4 -------------
 
 SELECT *
 FROM customer
 WHERE grade = 200;
-
-
 
 
 

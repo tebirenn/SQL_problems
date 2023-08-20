@@ -45,8 +45,6 @@ REFERENCES products(id);
 
 
 
-
-
 ------------- 2 -------------
 
 INSERT INTO customers(id, full_name, time_stamp, delivery_address)

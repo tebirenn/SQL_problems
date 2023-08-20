@@ -30,8 +30,6 @@ CREATE TABLE university (
 
 
 
-
-
 ------------- 3 -------------
 
 -- Вносим данные в созданные таблицы, по 10 записи
@@ -73,8 +71,6 @@ VALUES ('KBTU', 'Tole bi 59', 'Almaty', 'Kazakhstan'),
 	   ('ENU', 'Satpaeva 2', 'Almaty', 'Kazakhstan'),
 	   ('KBU', 'Universitetskaya 28', 'Karaganda', 'Kazakhstan'),
 	   ('KNMU', 'Tole Bi 94', 'Almaty', 'Kazakhstan');
-
-
 
 
 

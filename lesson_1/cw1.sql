@@ -5,8 +5,6 @@
 
 
 
-
-
 ------------- 2 -------------
 
 -- Cоздаем две таблицы через CREATE TABLE
@@ -34,8 +32,6 @@ CREATE TABLE products (
     reorder_level SMALLINT,
     discontinued INT NOT NULL
 );
-
-
 
 
 
@@ -70,21 +66,15 @@ VALUES (1, 'Chai', 8, 1, '10 boxes x 30 bags', 18, 39, 0, 10, 1),
 
 
 
-
-
 ------------- 4 -------------
 
 SELECT * FROM suppliers;    -- Выводим таблицу suppliers
 
 
 
-
-
 ------------- 5 -------------
 
 SELECT * FROM products;     -- Выводим таблицу products
-
-
 
 
 
