@@ -1,10 +1,10 @@
 ------------- 1 -------------
 
 SELECT player_name, state, 
-	   CASE state 
-	       WHEN 'AL' THEN 'yes'
-	       ELSE 'no' 
-	   END AS from_alabama
+       CASE state 
+           WHEN 'AL' THEN 'yes'
+           ELSE 'no' 
+       END AS from_alabama
 FROM players_all
 ORDER BY state;
 
@@ -13,12 +13,12 @@ ORDER BY state;
 ------------- 2 -------------
 
 SELECT player_name, height,
-	   CASE 
-	       WHEN height > 74 THEN 'over 74'
-		   WHEN height BETWEEN 73 AND 74 THEN '73-74'
-		   WHEN height BETWEEN 70 AND 72 THEN '70-72'
-		   ELSE 'under 70'
-	   END AS height_group
+       CASE 
+           WHEN height > 74 THEN 'over 74'
+           WHEN height BETWEEN 73 AND 74 THEN '73-74'
+           WHEN height BETWEEN 70 AND 72 THEN '70-72'
+           ELSE 'under 70'
+       END AS height_group
 FROM players_all;
 
 
@@ -26,10 +26,10 @@ FROM players_all;
 ------------- 3 -------------
 
 SELECT *, 
-	   CASE 
-	       WHEN year IN ('JP', 'SR') 
-		   THEN split_part(player_name, ' ', 1)
-	   END AS first_name
+       CASE 
+           WHEN year IN ('JP', 'SR') 
+           THEN split_part(player_name, ' ', 1)
+       END AS first_name
 FROM players_all;
 
 
@@ -37,11 +37,11 @@ FROM players_all;
 ------------- 4 -------------
 
 SELECT CASE 
-		   WHEN state IN ('CA', 'OR', 'WA') THEN 'West Coast'
-		   WHEN state = 'AL' THEN 'Alabama'
-		   ELSE 'Other'
-	   END AS arbitrary_regional_designation,
-	   COUNT(player_name)
+           WHEN state IN ('CA', 'OR', 'WA') THEN 'West Coast'
+           WHEN state = 'AL' THEN 'Alabama'
+           ELSE 'Other'
+       END AS arbitrary_regional_designation,
+       COUNT(player_name)
 FROM players_all
 WHERE weight >= 300
 GROUP BY arbitrary_regional_designation;
@@ -74,11 +74,11 @@ ORDER BY all_state DESC;
 ------------- 7 -------------
 
 SELECT 
-	CASE 
-		WHEN player_name ~ '^[A-Ma-m]' THEN 'A-M'
-		WHEN player_name ~ '^[N-Zn-z]' THEN 'N-Z'
-	END AS player_name_group,
-	COUNT(*)
+    CASE 
+        WHEN player_name ~ '^[A-Ma-m]' THEN 'A-M'
+        WHEN player_name ~ '^[N-Zn-z]' THEN 'N-Z'
+    END AS player_name_group,
+    COUNT(*)
 FROM players_all
 WHERE player_name ~ '^[A-Za-z]'
 GROUP BY player_name_group;
@@ -88,6 +88,6 @@ GROUP BY player_name_group;
 ------------- 8 -------------
 
 SELECT COUNT(CASE WHEN state = 'AK' THEN player_name ELSE NULL END) AS alaska,
-	   COUNT(CASE WHEN state = 'AZ' THEN player_name ELSE NULL END) AS arizona,
-	   COUNT(CASE WHEN state = 'AL' THEN player_name ELSE NULL END) AS alabama
+       COUNT(CASE WHEN state = 'AZ' THEN player_name ELSE NULL END) AS arizona,
+       COUNT(CASE WHEN state = 'AL' THEN player_name ELSE NULL END) AS alabama
 FROM players_all;
