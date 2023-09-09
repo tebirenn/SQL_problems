@@ -60,10 +60,10 @@ WHERE state = 'AL';
 ------------- 6 -------------
 
 SELECT state,
-       SUM(CASE WHEN year = 'FR' THEN 1 ELSE 0 END) AS fr,
-       SUM(CASE WHEN year = 'SO' THEN 1 ELSE 0 END) AS so,
-       SUM(CASE WHEN year = 'JR' THEN 1 ELSE 0 END) AS jr,
-       SUM(CASE WHEN year = 'SR' THEN 1 ELSE 0 END) AS sr,
+       COUNT(CASE WHEN year = 'FR' THEN 1 END) AS fr,
+       COUNT(CASE WHEN year = 'SO' THEN 1 END) AS so,
+       COUNT(CASE WHEN year = 'JR' THEN 1 END) AS jr,
+       COUNT(CASE WHEN year = 'SR' THEN 1 END) AS sr,
        COUNT(*) AS all_state
 FROM players_all
 GROUP BY state
@@ -76,10 +76,11 @@ ORDER BY all_state DESC;
 SELECT 
 	CASE 
 		WHEN player_name ~ '^[A-Ma-m]' THEN 'A-M'
-		ELSE 'N-Z'
+		WHEN player_name ~ '^[N-Zn-z]' THEN 'N-Z'
 	END AS player_name_group,
 	COUNT(*)
 FROM players_all
+WHERE player_name ~ '^[A-Za-z]'
 GROUP BY player_name_group;
 	
 
